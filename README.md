@@ -10,7 +10,7 @@ Each `entries/<profile>/<environment>/` directory contains:
 
 - `reference.json`: exact bytes consumed by an evidence verifier.
 - `manifest.json`: scope, provenance and SHA-256 of those exact bytes.
-- `endorsements/*.sigstore.json`: optional signed publisher statements whose
+- `endorsements/*.sigstore.json` or `*.ed25519.json`: optional signed publisher statements whose
   subject is the SHA-256 of `manifest.json`. Multiple issuers may sign the same
   manifest without changing it.
 
@@ -49,3 +49,10 @@ repository, workflow and source branch; publication in this registry alone
 grants no trust. The current GENXT statement records manifest authorship and
 scope. It is not by itself a CoRIM Endorsement or an approval of all measured
 software.
+
+The Genoa stage candidate also has `genxt-manual.ed25519.json`, a temporary
+one-use Ed25519 signature issued while the GENXT Actions job is unavailable.
+The corresponding public key and signed statement are published in GENXT's
+`revision/reference-endorsement` branch. This registry does not authorize that
+key; JAN's verifier policy pins both the key and exact manifest digest. This
+manual statement is not a GitHub OIDC attestation or production approval.

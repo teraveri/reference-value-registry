@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "algorithm": "Ed25519",
+  "key_id": "4c7a056d1ab50c7c26879dc9255e7a323eb48e3cc22b5f2152eb6dbc39917df9",
+  "statement": {
+    "_type": "https://in-toto.io/Statement/v1",
+    "subject": [
+      {
+        "name": "teraveri/reference-value-registry/entries/azure-snp-vtpm-ima-1/azure-genoa-ubuntu2204-kernel-1071-stage/manifest.json",
+        "digest": {
+          "sha256": "9e894415cd892a01a99b679cbac311ea6ba8648fc010c0bf5ffe854d735234e0"
+        }
+      }
+    ],
+    "predicateType": "https://teraveri.org/attestations/reference-manifest-publisher/v1",
+    "predicate": {
+      "schema_version": 1,
+      "claim": "published-reference-manifest",
+      "publisher": "GENXT",
+      "registry_repository": "teraveri/reference-value-registry",
+      "manifest_path": "entries/azure-snp-vtpm-ima-1/azure-genoa-ubuntu2204-kernel-1071-stage/manifest.json",
+      "manifest_sha256": "9e894415cd892a01a99b679cbac311ea6ba8648fc010c0bf5ffe854d735234e0"
+    }
+  },
+  "signature": "KeN/VMxjpPgYliPLmcRb1bZ8qaDPI/gNypdWRkhxDAQsdAb4PeXBWY3e2Fp/4oxi4KLnJlHPF18/oqInWUtwAQ=="
+}

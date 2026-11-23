@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "id": "azure-genoa-ubuntu2204-kernel-1071-stage",
+  "profile": "azure-snp-vtpm-ima/1",
+  "environment": {
+    "tee": "AMD SEV-SNP",
+    "product": "Genoa",
+    "os": "Ubuntu 22.04.5 LTS",
+    "kernel_release": "6.8.0-1071-azure-fde",
+    "kernel_package": "linux-image-6.8.0-1071-azure-fde=6.8.0-1071.78~22.04.1"
+  },
+  "reference": {
+    "path": "entries/azure-snp-vtpm-ima-1/azure-genoa-ubuntu2204-kernel-1071-stage/reference.json",
+    "sha256": "31d1655c424507116f1f39adbbab5d02b35524756fb7c95eb5fce4ca7672086b",
+    "ima_entries": 45
+  },
+  "provenance": {
+    "kind": "observed-stage-evidence",
+    "collected_on": "2026-11-23",
+    "review_status": "stage-candidate",
+    "description": "Derived from one live Genoa VM after the 1071 kernel upgrade; image/build acceptance is pending independent review."
+  },
+  "coverage": [
+    "boot_aggregate",
+    "kernel_modules"
+  ]
+}

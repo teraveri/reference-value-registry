@@ -14,6 +14,9 @@ Each `entries/<profile>/<environment>/` directory contains:
   subject is the SHA-256 of `manifest.json`. Multiple issuers may sign the same
   manifest without changing it.
 
+`fixtures/` holds deliberately altered references for negative verifier tests.
+They are not enrolled registry entries and carry no publisher endorsement.
+
 The first entry is a **stage candidate**, derived from live Azure Genoa evidence
 after a kernel update. Its measurements cover the boot aggregate and 44 kernel
 module records. It is not an independently approved production baseline and says

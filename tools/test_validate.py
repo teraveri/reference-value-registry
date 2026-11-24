@@ -48,6 +48,26 @@ class RegistryValidationTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "duplicate JSON key"):
             validate_entry(self.root, self.manifest)
 
+    def test_genoa_negative_fixture_changes_only_two_module_digests(self):
+        positive = json.loads((SOURCE / ENTRY / "reference.json").read_text())
+        negative = json.loads(
+            (SOURCE / "fixtures/azure-snp-vtpm-ima-1"
+             / "azure-genoa-ubuntu2204-kernel-1071-stage-two-module-mismatch/reference.json").read_text()
+        )
+        changed = []
+        for expected, observed in zip(
+            positive["ima_measurements"], negative["ima_measurements"], strict=True
+        ):
+            if expected != observed:
+                changed.append(expected["name"])
+                self.assertEqual(
+                    {key for key in expected if expected[key] != observed[key]},
+                    {"filedata_hash"},
+                )
+                self.assertEqual(len(observed["filedata_hash"]), 64)
+        self.assertEqual(changed, ["nf_tables.ko", "bridge.ko"])
+        self.assertEqual(positive["pcr10_sha256"], negative["pcr10_sha256"])
+
 
 if __name__ == "__main__":
     unittest.main()
